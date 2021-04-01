@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DoDo.Application\DoDo.Application.csproj" />
+    <ProjectReference Include="..\DoDo.Infrastructure.Persistence\DoDo.Infrastructure.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
