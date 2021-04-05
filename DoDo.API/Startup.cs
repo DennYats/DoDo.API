@@ -40,7 +40,7 @@ namespace DoDo.API
             services.AddScoped<IUserService, UserService>();
 
             services.AddDbContext<DoDoContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DoDoConnection")));
+                options.UseSqlServer(Configuration["ConnectionStrings:DoDoConnection"]));
 
             services.AddTransient<DataSeed>();
 
