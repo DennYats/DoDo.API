@@ -20,11 +20,11 @@ namespace DoDo.Application.Services
     public class UserService : IUserService
     {
         private readonly DoDoContext context;
-        private readonly UserManager<ApplicationUser> userManager;
+        private readonly UserManager<DoDoUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly JWT jwt;
 
-        public UserService(DoDoContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IOptions<JWT> jwt)
+        public UserService(DoDoContext context, UserManager<DoDoUser> userManager, RoleManager<IdentityRole> roleManager, IOptions<JWT> jwt)
         {
             this.context = context;
             this.userManager = userManager;
@@ -34,7 +34,7 @@ namespace DoDo.Application.Services
 
         public async Task<string> RegisterAsync(RegisterModel model)
         {
-            var user = new ApplicationUser
+            var user = new DoDoUser
             {
                 UserName = model.UserName,
                 Email = model.Email,
@@ -101,7 +101,7 @@ namespace DoDo.Application.Services
             authenticationModel.Message = $"Incorrect Credentials for user {user.Email}.";
             return authenticationModel;
         }
-        private async Task<JwtSecurityToken> CreateJwtToken(ApplicationUser user)
+        private async Task<JwtSecurityToken> CreateJwtToken(DoDoUser user)
         {
             var userClaims = await userManager.GetClaimsAsync(user);
             var roles = await userManager.GetRolesAsync(user);
@@ -224,7 +224,7 @@ namespace DoDo.Application.Services
             return true;
         }
 
-        public ApplicationUser GetById(string id)
+        public DoDoUser GetById(string id)
         {
             return context.Users.Find(id);
         }

@@ -10,7 +10,7 @@ namespace DoDo.Domain.Entities
 
 
         public string UserId { get; set; }
-        public ApplicationUser User { get; set; }
+        public DoDoUser User { get; set; }
         public IEnumerable<ToDoList> ToDoLists { get; set; }
     }
 }

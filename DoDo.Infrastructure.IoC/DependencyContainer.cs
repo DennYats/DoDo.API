@@ -21,7 +21,7 @@ namespace DoDo.Infrastructure.IoC
         {
             var mapperConfig = new MapperConfiguration(mc =>
             {
-                mc.AddProfile(new GeneralProfile());
+                mc.AddProfile(new ToDoMapperProfile());
             });
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);

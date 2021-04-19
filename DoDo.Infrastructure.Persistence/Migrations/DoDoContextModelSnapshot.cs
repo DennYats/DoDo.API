@@ -19,7 +19,7 @@ namespace DoDo.Infrastructure.Persistence.Migrations
                 .HasAnnotation("ProductVersion", "5.0.3")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("DoDo.Domain.Entities.ApplicationUser", b =>
+            modelBuilder.Entity("DoDo.Domain.Entities.DoDoUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -130,6 +130,9 @@ namespace DoDo.Infrastructure.Persistence.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -142,6 +145,9 @@ namespace DoDo.Infrastructure.Persistence.Migrations
                     b.Property<bool>("IsCompleted")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsReccurent")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Notification")
                         .HasColumnType("int");
 
@@ -151,7 +157,7 @@ namespace DoDo.Infrastructure.Persistence.Migrations
                     b.Property<int>("Priority")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("RepeatIn")
+                    b.Property<DateTime?>("ReccurentInterval")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("StartDate")
@@ -177,6 +183,9 @@ namespace DoDo.Infrastructure.Persistence.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -196,6 +205,9 @@ namespace DoDo.Infrastructure.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("IsCompleted")
                         .HasColumnType("bit");
@@ -344,11 +356,11 @@ namespace DoDo.Infrastructure.Persistence.Migrations
                     b.ToTable("_UserTokens");
                 });
 
-            modelBuilder.Entity("DoDo.Domain.Entities.ApplicationUser", b =>
+            modelBuilder.Entity("DoDo.Domain.Entities.DoDoUser", b =>
                 {
                     b.OwnsMany("DoDo.Domain.Entities.RefreshToken", "RefreshTokens", b1 =>
                         {
-                            b1.Property<string>("ApplicationUserId")
+                            b1.Property<string>("DoDoUserId")
                                 .HasColumnType("nvarchar(450)");
 
                             b1.Property<int>("Id")
@@ -368,12 +380,12 @@ namespace DoDo.Infrastructure.Persistence.Migrations
                             b1.Property<string>("Token")
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.HasKey("ApplicationUserId", "Id");
+                            b1.HasKey("DoDoUserId", "Id");
 
                             b1.ToTable("RefreshToken");
 
                             b1.WithOwner()
-                                .HasForeignKey("ApplicationUserId");
+                                .HasForeignKey("DoDoUserId");
                         });
 
                     b.Navigation("RefreshTokens");
@@ -392,7 +404,7 @@ namespace DoDo.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("DoDo.Domain.Entities.ToDoList", b =>
                 {
-                    b.HasOne("DoDo.Domain.Entities.ApplicationUser", "User")
+                    b.HasOne("DoDo.Domain.Entities.DoDoUser", "User")
                         .WithMany("ToDoLists")
                         .HasForeignKey("UserId");
 
@@ -421,7 +433,7 @@ namespace DoDo.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("DoDo.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("DoDo.Domain.Entities.DoDoUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -430,7 +442,7 @@ namespace DoDo.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("DoDo.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("DoDo.Domain.Entities.DoDoUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -445,7 +457,7 @@ namespace DoDo.Infrastructure.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DoDo.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("DoDo.Domain.Entities.DoDoUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -454,14 +466,14 @@ namespace DoDo.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("DoDo.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("DoDo.Domain.Entities.DoDoUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("DoDo.Domain.Entities.ApplicationUser", b =>
+            modelBuilder.Entity("DoDo.Domain.Entities.DoDoUser", b =>
                 {
                     b.Navigation("ToDoLists");
                 });

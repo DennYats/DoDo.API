@@ -17,9 +17,9 @@ namespace DoDo.API.Controllers
     public class ToDoListController : ControllerBase
     {
         private readonly IToDoListService toDoListService;
-        private readonly UserManager<ApplicationUser> userManager;
+        private readonly UserManager<DoDoUser> userManager;
 
-        public ToDoListController(IToDoListService toDoListService, UserManager<ApplicationUser> userManager)
+        public ToDoListController(IToDoListService toDoListService, UserManager<DoDoUser> userManager)
         {
             this.toDoListService = toDoListService;
             this.userManager = userManager;

@@ -11,7 +11,7 @@ namespace DoDo.Infrastructure.Persistence.Migrations
                 name: "RefreshToken",
                 columns: table => new
                 {
-                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    DoDoUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Token = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -23,10 +23,10 @@ namespace DoDo.Infrastructure.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RefreshToken", x => new { x.ApplicationUserId, x.Id });
+                    table.PrimaryKey("PK_RefreshToken", x => new { x.DoDoUserId, x.Id });
                     table.ForeignKey(
-                        name: "FK_RefreshToken__Users_ApplicationUserId",
-                        column: x => x.ApplicationUserId,
+                        name: "FK_RefreshToken__Users_DoDoUserId",
+                        column: x => x.DoDoUserId,
                         principalTable: "_Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);

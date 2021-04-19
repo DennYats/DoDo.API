@@ -10,7 +10,7 @@ namespace DoDo.Domain.Entities
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         public string UserId { get; set; }
-        public ApplicationUser User { get; set; }
+        public DoDoUser User { get; set; }
         public List<ToDoItem> ToDoItems { get; set; }
     }
 }

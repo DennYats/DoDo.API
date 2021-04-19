@@ -80,8 +80,9 @@ namespace DoDo.API.Controllers
             var cookieOptions = new CookieOptions
             {
                 HttpOnly = true,
-                Expires = DateTime.UtcNow.AddDays(3),
+                Expires = DateTime.UtcNow.AddDays(7),
             };
+
             Response.Cookies.Append("refreshToken", refreshToken, cookieOptions);
         }
     }

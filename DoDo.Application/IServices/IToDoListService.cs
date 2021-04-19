@@ -3,7 +3,7 @@ using DoDo.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DoDo.Application.Services.Interfaces
+namespace DoDo.Application.IServices
 {
     public interface IToDoListService
     {

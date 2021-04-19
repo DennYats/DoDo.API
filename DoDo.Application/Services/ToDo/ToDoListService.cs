@@ -15,9 +15,9 @@ namespace DoDo.Application.Services.ToDo
     {
         private DoDoContext db;
         private IMapper mapper;
-        private UserManager<ApplicationUser> userManager;
+        private UserManager<DoDoUser> userManager;
 
-        public ToDoListService(DoDoContext context, IMapper mapper, UserManager<ApplicationUser> userManager)
+        public ToDoListService(DoDoContext context, IMapper mapper, UserManager<DoDoUser> userManager)
         {
             this.db = context;
             this.mapper = mapper;

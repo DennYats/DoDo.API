@@ -21,7 +21,7 @@ namespace DoDo.Infrastructure.Persistence.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.2");
 
-            modelBuilder.Entity("DoDo.Domain.Entities.ApplicationUser", b =>
+            modelBuilder.Entity("DoDo.Domain.Entities.DoDoUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -328,11 +328,11 @@ namespace DoDo.Infrastructure.Persistence.Migrations
                     b.ToTable("_UserTokens");
                 });
 
-            modelBuilder.Entity("DoDo.Domain.Entities.ApplicationUser", b =>
+            modelBuilder.Entity("DoDo.Domain.Entities.DoDoUser", b =>
                 {
                     b.OwnsMany("DoDo.Domain.Entities.RefreshToken", "RefreshTokens", b1 =>
                         {
-                            b1.Property<string>("ApplicationUserId")
+                            b1.Property<string>("DoDoUserId")
                                 .HasColumnType("nvarchar(450)");
 
                             b1.Property<int>("Id")
@@ -358,12 +358,12 @@ namespace DoDo.Infrastructure.Persistence.Migrations
                             b1.Property<string>("Token")
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.HasKey("ApplicationUserId", "Id");
+                            b1.HasKey("DoDoUserId", "Id");
 
                             b1.ToTable("RefreshToken");
 
                             b1.WithOwner()
-                                .HasForeignKey("ApplicationUserId");
+                                .HasForeignKey("DoDoUserId");
                         });
 
                     b.Navigation("RefreshTokens");
@@ -382,7 +382,7 @@ namespace DoDo.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("DoDo.Domain.Entities.ToDoList", b =>
                 {
-                    b.HasOne("DoDo.Domain.Entities.ApplicationUser", "User")
+                    b.HasOne("DoDo.Domain.Entities.DoDoUser", "User")
                         .WithMany("ToDoLists")
                         .HasForeignKey("UserId");
 
@@ -411,7 +411,7 @@ namespace DoDo.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("DoDo.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("DoDo.Domain.Entities.DoDoUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -420,7 +420,7 @@ namespace DoDo.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("DoDo.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("DoDo.Domain.Entities.DoDoUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -435,7 +435,7 @@ namespace DoDo.Infrastructure.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DoDo.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("DoDo.Domain.Entities.DoDoUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -444,14 +444,14 @@ namespace DoDo.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("DoDo.Domain.Entities.ApplicationUser", null)
+                    b.HasOne("DoDo.Domain.Entities.DoDoUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("DoDo.Domain.Entities.ApplicationUser", b =>
+            modelBuilder.Entity("DoDo.Domain.Entities.DoDoUser", b =>
                 {
                     b.Navigation("ToDoLists");
                 });

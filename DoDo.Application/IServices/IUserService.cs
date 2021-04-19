@@ -2,7 +2,7 @@
 using DoDo.Domain.Entities;
 using System.Threading.Tasks;
 
-namespace DoDo.Application.Interfaces
+namespace DoDo.Application.IServices
 {
     public interface IUserService
     {
@@ -11,6 +11,6 @@ namespace DoDo.Application.Interfaces
         Task<string> AddRoleAsync(AddRoleModel model);
         Task<AuthenticationModel> RefreshTokenAsync(string token);
         bool RevokeToken(string token);
-        ApplicationUser GetById(string id);
+        DoDoUser GetById(string id);
     }
 }

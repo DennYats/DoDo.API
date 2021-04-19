@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace DoDo.Domain.Entities
 {
-    public class ApplicationUser : IdentityUser
+    public class DoDoUser : IdentityUser
     {
         public DateTime JoinDate { get; set; }
         public int? GoogleId { get; set; }

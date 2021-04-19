@@ -11,28 +11,14 @@ namespace DoDo.Domain.Entities
         public string Description { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? FinishDate { get; set; }
-        public DateTime? StartReminder { 
-            get => StartDate;
-            set
-            {
-                if (this.Notification == Notification.Double ||
-                    this.Notification == Notification.SingleStart) value = StartDate;
-            }
-        }
-        public DateTime? FinishReminder
-        {
-            get => FinishDate;
-            set
-            {
-                if (this.Notification == Notification.Double ||
-                    this.Notification == Notification.SingleFinish) value = FinishDate;
-            }
-        }
-        public DateTime? RepeatIn { get; set; }
+        public DateTime? StartReminder { get; set; }
+        public DateTime? FinishReminder { get; set; }
         public Notification Notification { get; set; } = Notification.None;
         public Priority Priority { get; set; } = Priority.None;
         public bool IsCompleted { get; set; } = false;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public bool IsReccurent { get; set; } = false;
+        public DateTime? ReccurentInterval { get; set; }
 
 
         public int ParentListId { get; set; }

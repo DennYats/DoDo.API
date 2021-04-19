@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DoDo.Infrastructure.Persistence.Context
 {
-    public class DoDoContext : IdentityDbContext<ApplicationUser>
+    public class DoDoContext : IdentityDbContext<DoDoUser>
     {
         public DbSet<ToDoList> ToDoLists { get; set; }
         public DbSet<ToDoItem> ToDoItems { get; set; }
@@ -18,7 +18,7 @@ namespace DoDo.Infrastructure.Persistence.Context
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<ApplicationUser>().ToTable("_Users");
+            builder.Entity<DoDoUser>().ToTable("_Users");
             builder.Entity<IdentityRole>().ToTable("_Roles");
             builder.Entity<IdentityUserRole<string>>().ToTable("_UserRoles");
             builder.Entity<IdentityUserClaim<string>>().ToTable("_UserClaims");

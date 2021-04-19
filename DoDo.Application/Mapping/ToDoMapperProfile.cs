@@ -4,9 +4,9 @@ using DoDo.Domain.Entities;
 
 namespace DoDo.Application.Mapping
 {
-    public class GeneralProfile : Profile
+    public class ToDoMapperProfile : Profile
     {
-        public GeneralProfile()
+        public ToDoMapperProfile()
         {
             CreateMap<ToDoList, ToDoListDTO>();
             CreateMap<ToDoItem, ToDoItemDTO>()
