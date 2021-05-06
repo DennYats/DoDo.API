@@ -1,5 +1,5 @@
 ﻿using DoDo.Application.DTOs.ToDo;
-using DoDo.Application.Services.Interfaces;
+using DoDo.Application.IServices;
 using DoDo.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

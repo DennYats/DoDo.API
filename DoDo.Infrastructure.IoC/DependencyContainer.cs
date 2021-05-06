@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using DoDo.Application.IServices;
 using DoDo.Application.Mapping;
-using DoDo.Application.Services.Interfaces;
 using DoDo.Application.Services.ToDo;
 using Microsoft.Extensions.DependencyInjection;
 

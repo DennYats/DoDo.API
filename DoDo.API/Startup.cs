@@ -1,6 +1,4 @@
-using DoDo.Application.Interfaces;
 using DoDo.Application.Services;
-using DoDo.Application.Settings;
 using DoDo.Domain.Entities;
 using DoDo.Infrastructure.IoC;
 using DoDo.Infrastructure.Persistence.Context;
@@ -31,11 +29,8 @@ namespace DoDo.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<JWT>(Configuration.GetSection("JWT"));
-
             services.AddIdentity<DoDoUser, IdentityRole>()
                 .AddEntityFrameworkStores<DoDoContext>();
-            services.AddScoped<IUserService, UserService>();
 
             services.AddDbContext<DoDoContext>(options =>
                 options.UseSqlServer(Configuration["ConnectionStrings:DoDoConnection"]));

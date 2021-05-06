@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using DoDo.Application.DTOs.ToDo;
-using DoDo.Application.Services.Interfaces;
+using DoDo.Application.IServices;
 using DoDo.Domain.Entities;
 using DoDo.Infrastructure.Persistence.Context;
 using Microsoft.AspNetCore.Identity;
