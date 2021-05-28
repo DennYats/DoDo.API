@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DoDo.Infrastructure.Persistence.Migrations
 {
-    [DbContext(typeof(DoDoContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20210213103814_Refresh Token Revoked can be null")]
     partial class RefreshTokenRevokedcanbenull
     {

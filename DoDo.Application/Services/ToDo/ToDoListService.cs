@@ -13,11 +13,11 @@ namespace DoDo.Application.Services.ToDo
 {
     public class ToDoListService : IToDoListService
     {
-        private DoDoContext db;
+        private ApplicationDbContext db;
         private IMapper mapper;
         private UserManager<DoDoUser> userManager;
 
-        public ToDoListService(DoDoContext context, IMapper mapper, UserManager<DoDoUser> userManager)
+        public ToDoListService(ApplicationDbContext context, IMapper mapper, UserManager<DoDoUser> userManager)
         {
             this.db = context;
             this.mapper = mapper;

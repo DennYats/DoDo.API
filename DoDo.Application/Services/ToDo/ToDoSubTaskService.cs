@@ -11,10 +11,10 @@ namespace DoDo.Application.Services.ToDo
 {
     public class ToDoSubTaskService : IToDoSubTaskService
     {
-        private DoDoContext db;
+        private ApplicationDbContext db;
         private IMapper mapper;
 
-        public ToDoSubTaskService(DoDoContext context, IMapper mapper)
+        public ToDoSubTaskService(ApplicationDbContext context, IMapper mapper)
         {
             this.db = context;
             this.mapper = mapper;
