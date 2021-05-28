@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DoDo.Infrastructure.Persistence.Context
 {
-    public class DoDoContext : IdentityDbContext<DoDoUser>
+    public class ApplicationDbContext : IdentityDbContext<DoDoUser>
     {
         public DbSet<ToDoList> ToDoLists { get; set; }
         public DbSet<ToDoItem> ToDoItems { get; set; }
         public DbSet<ToDoSubTask> ToDoSubTasks { get; set; }
 
-        public DoDoContext(DbContextOptions<DoDoContext> options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder builder)

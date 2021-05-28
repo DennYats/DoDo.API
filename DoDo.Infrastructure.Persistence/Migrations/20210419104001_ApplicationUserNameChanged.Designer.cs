@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DoDo.Infrastructure.Persistence.Migrations
 {
-    [DbContext(typeof(DoDoContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20210419104001_ApplicationUserNameChanged")]
     partial class ApplicationUserNameChanged
     {

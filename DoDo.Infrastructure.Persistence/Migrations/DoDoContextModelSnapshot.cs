@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DoDo.Infrastructure.Persistence.Migrations
 {
-    [DbContext(typeof(DoDoContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     partial class DoDoContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

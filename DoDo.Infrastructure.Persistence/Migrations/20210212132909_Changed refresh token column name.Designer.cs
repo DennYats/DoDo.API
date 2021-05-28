@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DoDo.Infrastructure.Persistence.Migrations
 {
-    [DbContext(typeof(DoDoContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20210212132909_Changed refresh token column name")]
     partial class Changedrefreshtokencolumnname
     {

@@ -30,9 +30,9 @@ namespace DoDo.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddIdentity<DoDoUser, IdentityRole>()
-                .AddEntityFrameworkStores<DoDoContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddDbContext<DoDoContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration["ConnectionStrings:DoDoConnection"]));
 
             services.AddAuthentication(options =>
