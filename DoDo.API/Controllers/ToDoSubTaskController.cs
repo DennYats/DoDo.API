@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace DoDo.API.Controllers
 {
     [Authorize]
@@ -24,35 +22,35 @@ namespace DoDo.API.Controllers
 
         // GET: api/<ValuesController>
         [HttpGet]
-        public async Task<IEnumerable<ToDoSubTaskDTO>> Get()
+        public async Task<IEnumerable<ToDoSubTaskDTO>> GetSubTasks()
         {
             return await toDoSubTaskService.GetSubTasksAsync();
         }
 
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
-        public async Task<ToDoSubTaskDTO> Get(int id)
+        public async Task<ToDoSubTaskDTO> GetSubTaskById(int id)
         {
             return await toDoSubTaskService.GetSubTaskByIdAsync(id);
         }
 
         // POST api/<ValuesController>
         [HttpPost]
-        public void Post(ToDoSubTask list)
+        public void AddSubTask(ToDoSubTask list)
         {
             toDoSubTaskService.Create(list);
         }
 
         // PUT api/<ValuesController>/5
         [HttpPut]
-        public void Put(ToDoSubTask list)
+        public void UpdateSubTask(ToDoSubTask list)
         {
             toDoSubTaskService.Update(list);
         }
 
         // DELETE api/<ValuesController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void DeleteSubTask(int id)
         {
             toDoSubTaskService.Remove(id);
         }
